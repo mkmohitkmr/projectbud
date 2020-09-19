@@ -1,0 +1,204 @@
+.html{
+    background-color: blue;
+    height: 100%;
+}
+
+.navbar{
+    border-bottom: hsla(0,10%,10%,0.1) 1px solid;
+    box-shadow: 0px 2px 5px hsla(0,10%,10%,0.1);
+    /* box-shadow: 0px 2px 5px hsla(0,10%,10%,0.1) inset; */
+}
+
+.nav-bar-search .form-control{
+    padding: .3rem .7rem;
+}
+
+.nav-bar-search .btn-light{
+    padding: 0.3rem 0.5rem;
+    border: none;
+    margin-left: 0.2rem;
+}
+
+.page-footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #fff;
+    border-bottom: hsla(0,10%,10%,0.1) 1px solid;
+    box-shadow: 0px -2px 10px hsla(0,10%,10%,0.2);
+    /* margin-top: 500px; */
+}
+
+.page-footer .display-5{
+    font-size: 0.8rem;
+}
+
+.outsearch{
+    margin-top: 75px;
+    width: 100%;
+}
+
+.outsearch input[type="search"] {
+    width: 85%;
+    border: hsla(0,10%,10%,0.1) 1px solid;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
+    /* margin-right: 1rem; */
+}
+
+.outsearch .btn-light{
+    border:  hsla(0,10%,10%,0.01) 1px solid;
+    border-radius: 5px;
+    padding: 0.3rem 0.3rem;
+}
+
+/* Page content */
+
+
+/* Right panel */
+.right-panel{
+    border-left: hsla(0,10%,10%,0.1) 1px solid; 
+}
+
+.left-panel{
+    border-right: hsla(0,10%,10%,0.1) 1px solid; 
+}
+
+
+/* Login form */
+.loginForm{
+    margin: 1rem auto 2rem auto;
+    padding: 40px;
+    /* border: hsla(0,10%,10%,0.1) 1px solid; */
+    /* box-shadow: 0px 2px 5px hsla(0,10%,10%,0.1); */
+}
+
+/* Register form  */
+.registerForm{
+    margin: 1rem auto 3rem auto;
+    padding: 40px;
+    /* border: hsla(0,10%,10%,0.1) 1px solid; */
+    /* box-shadow: 0px 2px 5px hsla(0,10%,10%,0.1); */
+}
+
+
+/* card styling */
+.card{
+    flex-direction: row !important;  
+    margin-bottom: 15px;
+}
+
+.card:last-of-type{
+    margin-bottom: 55px;
+}
+
+.card .card-img{
+    padding: 5px 10px 5px 5px;
+    /* max-height: 300px; */
+    /* overflow: hidden; */
+    /* background-image: url(../images/cat.jpg); */
+    background-size: cover;
+    background-position: center;
+}
+
+.card-text{
+    margin-bottom: 5px;
+}
+
+
+.section-head{
+    display: block;
+    padding-bottom: 5px;
+    text-shadow: 0px 2px 5px hsla(0,10%,10%,0.1);
+}
+
+.addpost-form{
+    margin-bottom: 55px;
+}
+
+/* full post view styling */
+.abstract{
+    font-style: italic;
+    margin: 1rem 0.5rem;
+}
+
+.profileUsername, .post-details, .post-card-details{
+    color: hsla(0,0%,0%,0.5); 
+    font-size: 0.9rem;
+    text-align:right;
+}
+
+.post_image{
+    margin: auto;
+    width: 80%;
+    height: 60%;
+    min-width: 400px;
+    min-height: 400px;
+    /* min-height: 400px; */
+    /* max-height: 800px;
+    max-width: 1000px; */
+    background-size: cover;
+    background-position: center;
+}
+
+.post-para:first-of-type::first-letter{
+    font-weight:bold;
+    font-size:200%;
+}
+
+.post-para::first-line{
+    text-indent: 30px;
+}
+
+.post-para{
+    text-align: justify;
+}
+
+.post-para:last-of-type{
+    margin-bottom:20px;
+}
+
+.post-para{
+    white-space: pre-line;
+}
+
+.post-form{
+    margin-bottom: 60px;
+}
+
+/* Comments and form styling */
+
+.post-comments{
+    background-color: hsla(200,90%,95%,0.8);
+    margin-bottom: 60px;
+    /* padding: 10px; */
+}
+
+
+.comment{
+    border-bottom: 2px solid white !important;
+    padding: 10px 20px;
+}
+
+.comment:last-of-type{
+    border:none;
+}
+
+.commentBy{
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.commentBy_username{
+    color: hsla(0,0%,0%,0.5); 
+    font-size: 0.9rem;
+    text-align:right;
+}
+
+/* profile */
+.profileName{
+    text-transform: capitalize;
+}

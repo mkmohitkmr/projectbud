@@ -1,0 +1,12 @@
+<div class="main-content d-flex col-12 col-md-9">
+
+<div class="left-panel d-none d-md-inline col-5 px-2 py-2">
+    <%- include('partials/leftpane', {user: user}) %>
+</div>
+
+<div class = "midSection col-7 px-2 py-2">
+    <%- include('partials/profile', {user: user}) %>
+
+    <%- include('partials/settings', {user: user}) %>
+</div>
+</div>

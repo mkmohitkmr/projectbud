@@ -1,0 +1,24 @@
+<form class="container addpost-form" action="/post/<%= post._id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
+    <h4 class="section-head">Edit Post</h4>
+    <div class="form-group">
+        <label for="title" >Title</label>
+        <input type="text" class="form-control" name="title" value="<%= post.title %>">
+    </div>
+    <div class="form-group">
+        <label for="abstract" >Abstract</label>
+        <input type="text" class="form-control" name="abstract" value="<%= post.abstract %>">
+    </div>
+    <div class="form-group">
+        <label for="image">Upload Image</label>
+        <input type="file" id="image" name="image">
+    </div>
+    <div class="form-group">
+      <label for="post_body">Write your post here!</label>
+      <textarea class="form-control" id="post_body" rows="18" name="post_body"><%= post.post_body %></textarea>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-light">Post</button>
+        <!-- <button class="btn btn-light">Reset</button>
+        <button class="btn btn-light">Delete</button> -->
+    </div>
+</form>

@@ -1,0 +1,61 @@
+
+<div class="main-content col-12">
+    <div class="full-post">
+        <h3><%= post.title %></h3>
+        <section class="post-details">
+            <span class="post-author"><%= post.posted_by.username %> | </span>
+            <span class="post-timestamp"><%= post.createdAt %></span> 
+        </section>
+        <section class="abstract">
+            <%= post.abstract %>
+        </section>
+
+        <% if(post.image){ %>
+            <div class="post_image" style=" background-image: url('/uploads/images/<%= post.image %>');">
+
+            </div>
+        <% } %>
+
+        <section class="post-body">
+            <p class="post-para">
+                <%= post.post_body %>
+            </p>
+        </section>
+        <% if(user && String(post.posted_by._id) === String(user._id)) { %>
+            <form class="form-inline post-form" action="/post/<%= post._id %>/edit?_method=DELETE" method="POST">
+                <a id="edit-btn" class="btn btn-outline-primary mr-2" href="/post/<%= post._id %>/edit">Edit</a>
+                <button id="delete-btn" class="btn btn-outline-danger">Delete</button>
+            </form>
+        <% } %>
+
+        <section class="post-comments">
+            <form class="comment" action="/post/<%= post._id %>/comment/" method="POST">
+                <label for="comment">Add comment</label>
+                <textarea class="form-control" name="comment" rows="1"></textarea>
+                <div class="text-right">
+                <button class="btn btn-sm btn-primary mt-1">Post comment</button>
+                </div>
+            </form>
+            
+            <% for(comments of post.comments){ %>
+                <div class="comment">
+                    <p><span class="commentBy"><%= comments.by_user.firstname+" "+comments.by_user.lastname %></span> | <span class="commentBy_username"> <%= comments.by_user.username %> </span>   </p>
+                    <p class="comment-body">
+                        <%= comments.comment %>
+                    </p>
+
+                    <% if(String(user._id) == String(comments.by_user._id)){ %>
+                        <form action="/post/<%= comments.on_post %>/comment/<%= comments._id %>?_method=DELETE" method="POST" class="commentForm">
+                            <div class="text-right">
+                                <a href="/post/<%= comments.on_post %>/comment/<%= comments._id %>" class="btn btn-sm btn-primary">Edit</a>
+                                <button class="btn btn-sm btn-primary ml-1">Delete</button>
+                            </div>
+                        </form>
+                    <% } %>
+                </div>
+            <% } %>
+        </section>
+
+
+    </div>
+</div>

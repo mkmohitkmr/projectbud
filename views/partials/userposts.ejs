@@ -1,0 +1,36 @@
+<h4 class="section-head">
+    <% if(dash){ %>
+        My Posts
+    <% } else { %>
+        Recent Posts
+    <% } %>
+    </h4>
+    <% if(posts.length !== 0) {%>
+    <% for(post of posts) { %>
+    <div class="card" >
+        <% if(post.image){ %>
+        <div class="card-img d-none d-sm-inline col-sm-4" style="background-image: url('/uploads/images/<%= post.image %>');"></div>
+        
+        <!-- <img src="img/cat.jpg" class="card-img-top " alt="..."> -->
+        <div class="card-body col-12 col-md-8">
+        <% } else{ %>
+            <div class="card-body col-12">
+        <% } %>
+            <h3><a class="titleLink" href="/post/<%= post._id %>/view"><%= post.title %></a></h3>
+            <p class="card-text">
+                <%= post.abstract %>
+            </p>
+            <div class="post-card-details">
+                <span class="post-author-card"><%= post.posted_by.username %> | </span>
+                <span class="post-timestamp-card"><%= post.createdAt %></span> 
+            </div>
+            <hr>
+            <button class="btn btn-sm btn-outline-primary mr-2">View</button>
+            <button class="btn btn-sm btn-outline-danger">Like</button>
+        </div>
+    </div>
+    <% } %>
+    <% } else { %>
+    <h5>There are no posts!</h5>
+    <a class="btn btn-outline-primary" href="/post/add">Click here to add post!</a>
+    <% } %> 
