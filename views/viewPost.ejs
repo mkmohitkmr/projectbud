@@ -1,10 +1,27 @@
+<% 
+                    function size2(str){
+                        if(str.length==1)
+                            str = "0"+str;
+                        
+                        return str;
+                    }
+                    var date = post.createdAt;
+                        dd = size2(date.getDate().toString());
+                        mm = size2(date.getMonth().toString());
+                        yyyy = date.getFullYear().toString();
+                        hh = size2(date.getHours().toString());
+                        min = size2(date.getMinutes().toString());
+                        sec = size2(date.getSeconds().toString());
+                        createdTimeStamp = hh+":"+min+":"+sec+"  "+dd+"/"+mm+"/"+yyyy;
+%>
+
 
 <div class="main-content col-12">
     <div class="full-post">
         <h3><%= post.title %></h3>
         <section class="post-details">
             <span class="post-author"><%= post.posted_by.username %> | </span>
-            <span class="post-timestamp"><%= post.createdAt %></span> 
+            <span class="post-timestamp"><%= createdTimeStamp %></span> 
         </section>
         <section class="abstract">
             <%= post.abstract %>
@@ -23,8 +40,15 @@
         </section>
         <% if(user && String(post.posted_by._id) === String(user._id)) { %>
             <form class="form-inline post-form" action="/post/<%= post._id %>/edit?_method=DELETE" method="POST">
-                <a id="edit-btn" class="btn btn-outline-primary mr-2" href="/post/<%= post._id %>/edit">Edit</a>
-                <button id="delete-btn" class="btn btn-outline-danger">Delete</button>
+                <a id="edit-btn" class="btn btn-sm btn-outline-primary mr-2" href="/post/<%= post._id %>/edit">Edit</a>
+                <button id="delete-btn" class="btn btn-sm btn-outline-danger">Delete</button>
+            </form>
+        <% } else if(user) {%>
+            <form class="form-inline post-form" action="/post/<%= post._id %>/edit?_method=DELETE" method="POST">
+                <a id="like-btn" class="btn btn-sm btn-outline-primary mr-2" href="/post/<%= post._id %>/edit">Like</a>
+                <a id="follow-btn" class="btn btn-sm btn-outline-primary mr-2" href="/post/<%= post._id %>/edit">Follow</a>
+                <a id="contri-btn" class="btn btn-sm btn-outline-primary mr-2" href="/post/<%= post._id %>/edit">Contribute</a>
+                <a id="help-btn" class="btn btn-sm btn-outline-primary mr-2" href="/post/<%= post._id %>/edit">Seek Help</a>
             </form>
         <% } %>
 

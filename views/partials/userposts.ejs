@@ -1,6 +1,8 @@
 <h4 class="section-head">
     <% if(dash){ %>
         My Posts
+    <% } else if(search){ %>
+        Search results for "<%= searchedFor %>"
     <% } else { %>
         Recent Posts
     <% } %>
@@ -16,17 +18,46 @@
         <% } else{ %>
             <div class="card-body col-12">
         <% } %>
-            <h3><a class="titleLink" href="/post/<%= post._id %>/view"><%= post.title %></a></h3>
+            <h3 class="titleLink"><a href="/post/<%= post._id %>/view"><%= post.title %></a></h3>
+            <div class="mid d-flex flex-row justify-content-between">
+                <div class="post-type">post-type</div>
+                <div class="post-status">post-status</div>
+            </div>
+            
             <p class="card-text">
                 <%= post.abstract %>
             </p>
             <div class="post-card-details">
                 <span class="post-author-card"><%= post.posted_by.username %> | </span>
-                <span class="post-timestamp-card"><%= post.createdAt %></span> 
+                <% 
+                    function size2(str){
+                        if(str.length==1)
+                            str = "0"+str;
+                        
+                        return str;
+                    }
+                    var date = post.createdAt;
+                        dd = size2(date.getDate().toString());
+                        mm = size2(date.getMonth().toString());
+                        yyyy = date.getFullYear().toString();
+                        hh = size2(date.getHours().toString());
+                        min = size2(date.getMinutes().toString());
+                        sec = size2(date.getSeconds().toString());
+                        createdTimeStamp = hh+":"+min+":"+sec+"  "+dd+"/"+mm+"/"+yyyy;
+                %>
+                <span class="post-timestamp-card"><%= createdTimeStamp %></span> 
             </div>
             <hr>
-            <button class="btn btn-sm btn-outline-primary mr-2">View</button>
-            <button class="btn btn-sm btn-outline-danger">Like</button>
+            <div class="post-bottom d-flex flex-row">
+                <div class="post-bottom-part flex-row mr-2">
+                    <div class="counter">likeCount</div>
+                    <button class="btn btn-sm btn-outline-primary">Like</button>
+                </div>
+                <div class="post-bottom-part flex-row">
+                    <div class="counter">followCount</div>
+                    <button class="btn btn-sm btn-outline-danger">Follows</button>
+                </div>
+            </div>
         </div>
     </div>
     <% } %>

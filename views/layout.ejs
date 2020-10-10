@@ -8,12 +8,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9c24a62ecf.js" crossorigin="anonymous"></script>
     <title>ProjectBud</title>
   </head>
 
   <body>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v8.0&appId=396443384657922&autoLogAppEvents=1" nonce="ToNLlsNQ"></script>
     
     <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
         <div class="container">
@@ -27,39 +26,55 @@
 
             <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto">
-                  <li class="nav-item ml-3">
+                  <li class="nav-item ml-2">
                   <a class="nav-link" href="/">Home</a>
                   </li>
-                  <li class="nav-item ml-3">
-                      <a class="nav-link" href="/post/add">Add Post</a>
+                  <li class="nav-item ml-2">
+                      <a class="nav-link" href="/post/add">New</a>
                   </li>
                   <% if(!user) {%>
                 
-                    <li class="nav-item ml-3">
+                    <li class="nav-item ml-2">
                         <a class="nav-link" href="/users/login">Login</a>
                     </li>
-                    <li class="nav-item ml-3">
+                    <li class="nav-item ml-2">
                         <a class="nav-link" href="/users/register">Register</a>
                     </li>
                     <% } else{ %>
-                    <li class="nav-item ml-3">
-                      <a class="nav-link" href="/users/<%= user.username %>/dashboard">Dashboard</a>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link" href="/users/login">My Projects</a>
                     </li>
-                    <li class="nav-item ml-3">
-                        <a class="nav-link" href="/users/logout">Logout</a>
+                    
+                    <li class="nav-item ml-2 mr-3">
+                      <a class="nav-link" href="/users/login"><i class="fas fa-bell"></i></a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                      <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-chevron-circle-down"></i></a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/users/<%= user.username %>/dashboard">Dashboard</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/users/logout">Logout</a>
+                      </div>
                     </li>
                   <% } %>
 
               </ul>
             </div>
         </div>
-      </nav>
+    </nav>
 
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-11"> 
+          <div class="col-12"> 
             <form action="" class="outsearch form-inline justify-content-center">
-              <input class="mr-sm-2" type="search" type="search" placeholder="What are you looking for?">
+              <input class="mr-sm-1 " type="search" type="search" placeholder="What are you looking for?">
+              <select name="proj_type" class="form-control mr-sm-1 ">
+                <option value="Project">Project</option>
+                <option value="Paper">Paper</option>
+                <option value="Seminar">Seminar</option>
+              </select>
               <button class="btn btn-light">Search</button>
             </form>
           </div>

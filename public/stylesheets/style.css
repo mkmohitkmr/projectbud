@@ -19,6 +19,10 @@
     margin-left: 0.2rem;
 }
 
+a .nav-link .dropdown-toggle::after{
+    content: none;
+}
+
 .page-footer{
     position: fixed;
     left: 0;
@@ -38,15 +42,34 @@
 
 .outsearch{
     margin-top: 75px;
-    width: 100%;
+    /* width: 100%; */
 }
 
+@media only screen and (max-width: 780px) {
+    .outsearch input[type="search"] {
+        width: 60%;
+        border: hsla(0,10%,10%,0.1) 1px solid;
+        border-radius: 5px;
+        padding: 0.3rem 0.5rem;
+        /* margin-right: 1rem; */
+    }
+}
+@media only screen and (min-width:780px) {
 .outsearch input[type="search"] {
-    width: 85%;
+    width: 70%;
     border: hsla(0,10%,10%,0.1) 1px solid;
     border-radius: 5px;
     padding: 0.3rem 0.5rem;
     /* margin-right: 1rem; */
+}
+}
+
+.outsearch select{
+    width: 10%;
+    min-width:90px;
+    border: hsla(0,10%,10%,0.1) 1px solid;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
 }
 
 .outsearch .btn-light{
@@ -91,6 +114,21 @@
     margin-bottom: 15px;
 }
 
+.card .titleLink a:link{
+    color: black;
+    text-decoration: none;
+}
+
+.card .titleLink a:hover{
+    color: hsla(0,0%,0%,0.85);
+    text-decoration: none;
+}
+
+.card .titleLink a:visited{
+    color: hsla(0,0%,0%,0.9);
+    text-decoration: none;
+}
+
 .card:last-of-type{
     margin-bottom: 55px;
 }
@@ -106,6 +144,15 @@
 
 .card-text{
     margin-bottom: 5px;
+}
+
+.card-body{
+    padding: 1rem !important;
+}
+
+.card-body hr{
+    margin-top:0.25rem;
+    margin-bottom:0.25rem;
 }
 
 
@@ -175,6 +222,20 @@
     background-color: hsla(200,90%,95%,0.8);
     margin-bottom: 60px;
     /* padding: 10px; */
+}
+
+.mid{
+    color: hsla(0,0%,0%,0.5); 
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.mid .post-status{
+    font-style: italic;
+}
+
+.counter{
+    font-size: 0.9rem;
 }
 
 
