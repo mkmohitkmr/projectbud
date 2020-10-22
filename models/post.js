@@ -34,6 +34,7 @@ var postSchema = new Schema({
 },{
     timestamps: true
 });
+postSchema.index({'$**': 'text'});
 
 var Posts = mongoose.model('Post', postSchema);
 

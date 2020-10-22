@@ -63,5 +63,7 @@
     <% } %>
     <% } else { %>
     <h5>There are no posts!</h5>
+        <% if(search === false){ %>
     <a class="btn btn-outline-primary" href="/post/add">Click here to add post!</a>
+        <% } %>
     <% } %> 

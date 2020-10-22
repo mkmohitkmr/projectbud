@@ -1,17 +1,20 @@
 <div class="loginForm col-8">
-    <form action="/users/login" method="POST">
+    <form action="/users/login" onsubmit="return validate();" method="POST" autocomplete="off">
         <h4 class="section-head">Login</h4>
+        <small class="form-text text-muted" id="error_message"></small>
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" name="username">
-            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            <small class="form-text text-muted"></small>
         </div>
         <div class="form-group">
             <label for="pass">Password</label>
-            <input type="password" class="form-control" id="pass" name="password">
+            <input type="password" class="form-control" id="password" name="password">
         </div>
         
             <button type="submit" class="btn btn-primary">Login</button>
     </form>
 
 </div>
+
+<script src="/javascripts/login.js"></script>

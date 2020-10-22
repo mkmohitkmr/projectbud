@@ -68,14 +68,14 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12"> 
-            <form action="" class="outsearch form-inline justify-content-center">
-              <input class="mr-sm-1 " type="search" type="search" placeholder="What are you looking for?">
+            <form action="/post/search" method="GET" class="outsearch form-inline justify-content-center">
+              <input class="mr-sm-1 " type="search" name="search" placeholder="What are you looking for?">
               <select name="proj_type" class="form-control mr-sm-1 ">
                 <option value="Project">Project</option>
                 <option value="Paper">Paper</option>
                 <option value="Seminar">Seminar</option>
               </select>
-              <button class="btn btn-light">Search</button>
+              <input type="submit" class="btn btn-light" name="searchbtn" value="Search" />
             </form>
           </div>
         </div>

@@ -416,5 +416,16 @@ postRouter.route('/add')
     res.end('DELETE operation is not supported at /post/add');
 });
 
+postRouter.route('/search')
+.options(cors.corsWithOptions, (req, res)=>{ res.statusCode = 200; })
+.get(cors.cors, authenticate.verifyUser, async (req,res,next)=>{
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html');
+    var search_string = req.query.search;
+    var proj_type = req.query.proj_type;
+    var searchRes = await Posts.find({$text: {$search: search_string}}).populate('posted_by', '_id username');
+    res.render('searchResults', {posts: searchRes, searchedFor: search_string, user: req.user});
+    // res.render('index');
+})
 
 module.exports = postRouter;
